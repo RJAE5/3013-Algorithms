@@ -17,77 +17,6 @@
 *         main.cpp
 *******************************************************************************/
 
-// #include <iostream>
-
-// using namespace std;
-
-// // // // // // // // // // // //
-// // Following Code was provided
-// // // // // // // // // // // //
-
-// struct Node {
-//   int data;
-//   Node *left;
-//   Node *right;
-
-//   Node(int x) {
-//     data = x;
-//     left = right = nullptr;
-//   }
-// };
-
-// class Bst {
-// private:
-//   Node *root;
-//   void _insert(Node *&sub_root, int x) {
-//     if (sub_root == nullptr) {
-//       sub_root = new Node(x);
-//     } else {
-//       if (x < sub_root->data) {
-//         _insert(sub_root->left, x);
-//       } else {
-//         _insert(sub_root->right, x);
-//       }
-//     }
-//   }
-//   void _print(Node *root) {
-//     if (!root) {
-//       return;
-//     }
-     
-//     _print(root->right);
-//     cout << root->data << " ";
-//     _print(root->left);
-     
-//   }
-
-// public:
-//   Bst() { root = nullptr; }
-  
-//   void insert(int x) {
-//     _insert(root, x);
-//   }
-  
-//   bool search() { return 0; }
-  
-//   void print() { _print(root); }
-
-//   void remove() {_}
-// };
-
-
-
-// int main() {
-//   std::cout << "Hello World!\n";
-//   Bst tree;
-//   tree.insert(8);
-//   tree.insert(3);
-//   tree.insert(1);
-//   tree.insert(11);
-//   tree.insert(7);
-//   tree.insert(15);
-//   tree.print();
-// }
 
 // // // // // // // // // // // // // // // // // // // // // // // //
 // Following code was provided, I simply added on the commented methods
@@ -135,6 +64,22 @@ private:
     _print(root->left);
   }
 
+    /*
+    * Private : _delete
+    *
+    * Description:
+    *      Locate the node to be deleted, then, based on whichever case the
+    *      node falls into in terms of children, it will properly reorganize
+    *      the tree so that it is still valid after node deletion using
+    *      recursion.
+    *
+    * Params:
+    *     Node* root - The head of the tree/subtree
+    *     int x      - The value to be deleted
+    *
+    * Returns:
+    *     Node*      - The head of the new subtree
+    */
   Node* _delete(Node* root, int x) {
     // Base case fore empty tree
     if (root == nullptr) {
@@ -183,8 +128,19 @@ private:
     return root;
   }
 
-  
 
+    /*
+    * Private : _findMin
+    *
+    * Description:
+    *      Determine the smallest node within a given subtree.
+    *
+    * Params:
+    *     Node* root - The head of the tree/subtree
+    *
+    * Returns:
+    *     Node*      - The node with the smallest value in the tree
+    */
   Node* _findMin(Node* root) {
     while (root && root->left != nullptr) {
       root = root->left;
