@@ -8,10 +8,14 @@
 *  Semester:         Spring 2025
 *
 *  Description:
-*         a
+*         This program contains the binary search tree (BST) that we created
+*         in class on 1-27-2025 with an additional delete method that was added
+*         as an assignment. The delete method takes into consideration the 3 
+*         cases that can occur when deleting from a BST: 0, 1, or 2 children.
 *
 *  Usage:
-*         b
+*         You may tweak the values being inserted/deleted from the tree in 
+*         `main` and compile and run the program to see the values displayed
 *
 *  Files: 
 *         main.cpp
