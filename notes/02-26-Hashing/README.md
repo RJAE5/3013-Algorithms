@@ -46,3 +46,17 @@ Chaining - Creating a linked list at the spot of collision, and just adding onto
 ### Clustering
 * Primary Clustering: The tendency for some collision resolution schemes to create long runs of filled slots at the hash functions initial choice to place a value in the table
 * Secondary Clustering: The same as primary clustering, but not at a hash functions first choice, usually the second or third choice.
+
+### Quadratic Probing
+H = v % m + i^2
+
+i = How many times we're looking for something
+m = table size
+v = value we're searching for
+
+Basically when there's a collision, increment i and reset to 0 once solved.
+
+### Overview/Tips
+* To avoid bad clustering, we generally want a table to be 20% bigger than the data set.
+* Chaining is common collision resolution.
+* Table sizes should be prime.
