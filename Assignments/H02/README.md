@@ -42,3 +42,42 @@ This is best mitigated by choosing a prime number for the size of the table, whi
 Choosing a poor table size can lead to the aforementioned clustering rather soon, for example, if our table size was 10 and our data set was purely even numbers `2, 4, 6, ...` We would get fine placement for the first 5 numbers, but then every single number after that would be a collision.
 
 Additionally, if our table is too small, we have the potential to start clustering much worse even if we chose a prime number for the table size. Conversely, with a table size that is far too big, we might not cluster as badly, but large amounts of space are wasted. This effect tends to be balanced by choosing a table size of around 20% bigger than the data set.
+
+## Simulation and Diagram Exercises (Part B)
+
+### Set 1
+* h(k) = k mod m (m = table size)
+* Values:
+    * `5, 22, 17, 18, 35, 101, 16, 0, 8`
+* Table Size: 10
+* Collision Resolution: **Separate Chaining**
+
+
+![Set 1](./H02_Set_1.png)
+
+Inserting the values in order with a table size of 10 and using separate chaining as our colision resolution. We run into relatively few collisions, only two throughout the entire process. Clustering seems minimal at the end, however, with relatively few empty spots left, it's likely we've used most of our luck, and the majority of values added afterwards would begin to chain further.
+
+### Set 2
+* h(k) = k mod m (m = table size)
+* Values:
+    * `5, 22, 17, 18, 35, 101, 16, 0, 8`
+* Table Size: 10
+* Collision Resolution: **Linear Probing**
+
+
+![Set 2](./H02_Set_2.png)
+
+With the same values and table size, but instead using **Linear Probing** as our collision resolution, we run into many more issues. After only the second collision, the entire bottom half of the table becomes blocked off, meaning anything with a hash greater than or equal to 5 would have to go all the way down the table and back up again. This is seen with the 3rd and final collision from the data set which tries to go into position 8, but probes 5 times before finding and open spot. Overall, linear probing has a more difficult time with this data set.
+
+### Set 3
+* h(k) = k mod m (m = table size)
+* Values:
+    * `5, 10, 15, 20, 25, 30, 35, 40`
+* Table Size: 10 and 11
+* Collision Resolution: **Separate Chaining**
+
+![Set 3](./H02_Set_3.png)
+
+This set of numbers was tested using **separate chaining** and two different table sizes. The first size of 10 (denoted with green markers) experiences really bad primary clustering, centering around indecies 0 and 5 because our data set is purely multiples of 5. Since our table size is also a multiple of 5, this causes the really extreme clustering.
+
+The second size of 11 (denoted with purple markers) experiences 0 collisions when storing the data. This is due to the fact that 11 is a prime number, meaning the mod result is less likely to have been used before, and in this case, used 0 times throughout the data set. In fact, 4 more items could have been stored into the table before any collisions occured, and once that threshold was crossed, each collision would be resolved by creating a list for another 11 items and then the pattern would repeat, though this is not indicative of every data set.
