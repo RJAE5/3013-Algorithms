@@ -22,3 +22,11 @@ Dijkstra's Algorithm solves the single-source shortest path problem for a direct
 Basically, it starts at a node, sets the distance to that node to 0, finds the next closest node, and then updates the distance to that node.
 
 It works by keeping for each vertext *v* the cost of d[v] of the shortest path found so far between **s** and *v*
+
+
+### Breadth-First Search
+BFS uses a queue to keep track of the neighbors. It stays local and spreads out evenly and examines all neighbors
+
+### Depth-First Search
+DFS uses a stack to keep track of the nodes. DFS charges to one end of the graph, and traces back searching the neighbors
+
