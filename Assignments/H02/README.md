@@ -81,3 +81,24 @@ With the same values and table size, but instead using **Linear Probing** as our
 This set of numbers was tested using **separate chaining** and two different table sizes. The first size of 10 (denoted with green markers) experiences really bad primary clustering, centering around indecies 0 and 5 because our data set is purely multiples of 5. Since our table size is also a multiple of 5, this causes the really extreme clustering.
 
 The second size of 11 (denoted with purple markers) experiences 0 collisions when storing the data. This is due to the fact that 11 is a prime number, meaning the mod result is less likely to have been used before, and in this case, used 0 times throughout the data set. In fact, 4 more items could have been stored into the table before any collisions occured, and once that threshold was crossed, each collision would be resolved by creating a list for another 11 items and then the pattern would repeat, though this is not indicative of every data set.
+
+## Reflection & Short-Answer Questions (Part C)
+### Real World Impact
+A poor hash table size, like composite numbers, especially even numbers, can lead to clustering sooner rather than later. Additionally, the size relevant to the dataset can also be important, if our table size is too close to the size of our data set, it becomes rather difficult to hash with ample amount of space in between elements. Alternatively, a table that is too big may have great hash efficiency, but sacrifices available space. This is where the roughly ideal size of 20% larger than the data set comes into play.
+
+
+Open and closed hashing strategies tend to handle collisions fundamentally different. In a high load scenario, open hashing can suffer from long search times and high overhead, making operations inefficient more quickly. Closed hashing on the other hand tends to handle high-load scenarios with more grace because each list would tend to have less clustering, however, this ideal performance degrades if the "buckets" become arbitrarily long.
+
+### Design Considerations
+```
+If you were to design a hash table for a high-frequency trading system where every millisecond counts, which collision resolution strategy might you choose and why?
+```
+
+I would personally choose closed hashing since following addresses of pointers down a list tends to be quicker and more time efficient than calculating a next probe. If a proper table size was selected, no chain would become too long, meaning performance would stay ideal.
+
+<br>
+
+```
+How might you combine the benefits of chaining and open addressing to design a hybrid hash table?
+```
+Using the original hash table as a one dimensional array, potentially every slot could be linked to its own one dimensional array that could in a sense, act as a secondary hash table. This effectively creates a 2D array which uses closed hashing to link the original hash table to all of the secondary ones, and we could use some probing technique inside of the secondary ones, such as linear probing. In my reasoning, this would create a hybrid hash table.
