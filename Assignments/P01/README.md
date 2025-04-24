@@ -89,9 +89,17 @@ Video](https://www.youtube.com/watch?v=2EKIZrimeuk)
 - [Understanding Convex Hull Algorithms: A Comprehensive Guide](https://algocademy.com/blog/understanding-convex-hull-algorithms-a-comprehensive-guide/)
 - [QuickHull Algorithm GeeksforGeeks](https://www.geeksforgeeks.org/quickhull-algorithm-convex-hull/)
 
----
+<br>
 
 **Authored by:**  
 Rykir Evans,
 Ashley Flores,
 Victoria Heredia
+
+
+### Files
+
+|   #   | File                                                          | Description                                        |
+| :---: | ------------------------------------------------------------- | -------------------------------------------------- |
+|   1   | [Convex_Hull_Presentation](./Convex_Hull_Presentation.pdf)    | PDF Version of presentation                        |
+|   2   | [Convex_Hull_Questions](./Convex_Hull_Questions.pdf)          | Document containing exam questions                 | 
